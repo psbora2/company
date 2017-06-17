@@ -1,0 +1,14 @@
+<h1>Tom</h1>
+<%= form_tag resumes_xml_path, :method => "get" do %>
+  <%= text_field_tag "xml_path" %>
+  <%= radio_button_tag 'highlight' , true%>
+  <%= submit_tag "Search" %>
+  <%= hidden_field_tag :id , @resume.id %>
+  <%= hidden_field_tag :name , @entry.name %>
+<% end %>
+<div><%= @xml_output %></div>
+
+
+<% if @highlight_content.present?%>
+  <span style="background-color: yellow;"> <%= @highlight_content%>  </span>
+<% end %>

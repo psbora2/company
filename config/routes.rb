@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :resumes, only: [:index, :new, :create, :destroy]
-  root "resumes#index"
 
+  get "resumes/xml", :to => "resumes#show_xml"
+  resources :resumes, only: [:index, :new, :create, :destroy, :show]
+  root "resumes#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

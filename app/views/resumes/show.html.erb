@@ -1,0 +1,20 @@
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Download Link</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @resume_files.each do |resume| %>
+      <tr>
+        <% if !resume.name.include?('/') && resume.name.include?('.xml') %>
+          <td><%= link_to resume.name, resumes_xml_path({name: resume.name,id: @resume.id}) %></td>
+        <% else %>
+          <td><%= resume.name %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
